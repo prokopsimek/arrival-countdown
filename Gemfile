@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
 
+# Load env variables from .env file
+gem 'dotenv-rails'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use postgresql as the database for Active Record
@@ -44,4 +47,70 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
+
+
+
+gem 'puma'
+
+# Hyper-concurent job worker
+gem 'sidekiq' # sidekiq must be before Airbrake in Gemfile!
+# Scheduler
+gem 'sidekiq-scheduler', '~> 2.0'
+
+gem 'sinatra', require: nil
+
+# Gem for AWS cloud communication. We use it for S3 bucket service
+gem 'aws-sdk', '~> 2'
+# Gem that signs CloudFront URL's. 'aws-sdk' does not suuport this functionality directly
+gem 'aws_cf_signer'
+
+
+group :production do
+  # Make our non-binary responses smaller
+  # See https://github.com/romanbsd/heroku-deflater
+  gem 'heroku-deflater'
+
+  # Heroku rails compatibility gem
+  gem 'rails_12factor'
+end
+
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug'
+
+  # test doubles
+  gem 'rspec-mocks'
+  gem 'rspec_junit_formatter'
+
+  # Our favorite testing framework
+  gem 'rspec-rails'
+  gem 'i18n-spec'
+  gem 'db-query-matchers'
+  gem 'fuubar' # RSpec formatter
+  gem 'guard-rspec' # realtime changes watcher
+  gem 'guard-rails'
+
+  # JSON parser to speedup parsing json response from rspec requests
+  gem 'oj' # https://github.com/ohler55/oj
+  gem 'oj_mimic_json'
+
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+
+  # To better debugging
+  gem 'letter_opener_web', '~> 1.2.0'
+
+  # Rubocop power
+  gem 'rubocop'
+
+  gem 'foreman'
+
+  # Gem for reducing the number of queries
+  gem 'bullet'
+
+  # debug requests on development
+  gem 'meta_request'
+end
+
+ruby '2.2.4'
 

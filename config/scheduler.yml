@@ -1,0 +1,6 @@
+#update_counters:
+#  every:
+#    - "30m"
+#    - first_in => '1m'
+#  class: UpdateCountersJob
+#  description: "This job will update all counter caches in the models."
