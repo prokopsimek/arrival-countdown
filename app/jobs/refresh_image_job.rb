@@ -1,4 +1,5 @@
-class RefreshImageJob < SidekiqJobBase # This is a Sidekiq job, not the normal ActiveJob, beacuse of scheduling
+class RefreshImageJob # This is a Sidekiq job, not the normal ActiveJob, beacuse of scheduling
+  include Sidekiq::Worker
   def perform
     Rails.logger.info '===== Img refreshing ======'
 
