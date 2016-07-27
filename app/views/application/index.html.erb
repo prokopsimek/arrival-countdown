@@ -15,5 +15,9 @@
   }
 </style>
 
-<%= image_tag @image_url, class: "absoluteCenter" %>
+<% if DateTime.now >= DateTime.civil(2016, 8, 1) || Rails.env.development? %>
+  <%= image_tag @image_url, class: "absoluteCenter" %>
+<% else %>
+  <h1>W8 4 it until 1.8.2016!</h1>
+<% end %>
 
