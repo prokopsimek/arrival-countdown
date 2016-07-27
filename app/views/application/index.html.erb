@@ -1,7 +1,19 @@
 <style>
-  img{
-    max-width: 100%;
-    height: auto;
+  .absoluteCenter {
+    margin:auto;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+  }
+
+  /* Sizing */
+  img.absoluteCenter {
+    max-height:100%;
+    max-width:100%;
   }
 </style>
-  <%= image_tag @image_url %>
+
+<%= image_tag @image_url, class: "absoluteCenter" %>
+
