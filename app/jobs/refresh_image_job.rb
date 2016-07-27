@@ -7,7 +7,9 @@ class RefreshImageJob # This is a Sidekiq job, not the normal ActiveJob, beacuse
     all_numbers = all_numbers - Image.all.map{ |i| i.name.to_i }
     random_name = all_numbers.sample
 
-    Image.create!(date: Date.today, name: random_name) if random_name.present?
+    if random_name.present? && DateTime.now >= DateTime.civil(2016, 8, 1)
+      Image.create!(date: Date.today, name: random_name)
+    end
 
     Rails.logger.info "===== Img refreshed ======"
   end
