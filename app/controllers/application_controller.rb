@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def index
     @image = Image.order(:created_at).last
-    @image_url = "https://s3-eu-west-1.amazonaws.com/arrival-countdown/#{@image.name}.jpg"
+    @image_url = "https://s3-eu-west-1.amazonaws.com/arrival-countdown/public/#{@image.name}.jpg"
   end
 
 end
