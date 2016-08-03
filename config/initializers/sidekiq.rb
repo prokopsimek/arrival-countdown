@@ -19,8 +19,11 @@ end
 Sidekiq.configure_server do |config|
   config.redis = { url: redis_url, size: redis_server_size }
 
-  Sidekiq.schedule = YAML.load_file(File.expand_path("#{Rails.root}/config/scheduler.yml", __FILE__))
-  Rails.logger.info("Job details: #{Sidekiq.schedule}")
+  config.on(:startup) do
+    Sidekiq.schedule = YAML.load_file(File.expand_path('../../config/scheduler.yml', __FILE__))
+    Sidekiq::Scheduler.reload_schedule!
+    Rails.logger.info("Job details: #{Sidekiq.schedule}")
+  end
 end
 
 # Perform Sidekiq jobs immediately in development,
