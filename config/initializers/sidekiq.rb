@@ -19,7 +19,7 @@ end
 Sidekiq.configure_server do |config|
   config.redis = { url: redis_url, size: redis_server_size }
 
-  Sidekiq.schedule = YAML.load_file(File.expand_path("../../../config/scheduler.yml", __FILE__))
+  Sidekiq.schedule = YAML.load_file(File.expand_path("#{Rails.root}/config/scheduler.yml", __FILE__))
   Rails.logger.info("Job details: #{Sidekiq.schedule}")
 end
 
