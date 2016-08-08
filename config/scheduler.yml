@@ -4,9 +4,10 @@ ping_job:
     - first_in => '5s'
   class: PingJob
   description: "Ping worker."
-refreshing_hp_image_job:
+new_image_job:
   cron:
     - "0 08 * * *"
-  class: RefreshImageJob
+    - first_in => '10s'
+  class: NewImageJob
   description: "Refreshing images."
 
