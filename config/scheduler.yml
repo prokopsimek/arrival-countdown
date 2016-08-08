@@ -9,3 +9,4 @@ refreshing_hp_image_job:
     - "0 08 * * * Europe/Prague"
   class: RefreshImageJob
   description: "Refreshing images."
+  
