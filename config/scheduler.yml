@@ -5,7 +5,7 @@ ping_job:
   class: PingJob
   description: "Ping worker."
 new_image_job:
-  cron: "15 * * * * *"
+  cron: "0 08 * * * Europe/Prague"
   class: NewImageJob
   description: "Refreshing images."
 
