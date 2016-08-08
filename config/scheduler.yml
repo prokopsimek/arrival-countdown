@@ -6,8 +6,7 @@ ping_job:
   description: "Ping worker."
 refreshing_hp_image_job:
   cron:
-    - "0 08 * * * Europe/Prague"
-    - first_in => '5s'
+    - "0 08 * * *"
   class: RefreshImageJob
   description: "Refreshing images."
 
