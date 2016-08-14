@@ -1,43 +1,8 @@
-<style>
-  body{
-    background-color: black;
-    margin: 0 0 0 0;
-  }
+<h1 class="waiting">
+  Už jen <%= (DateTime.civil(2016,12,13) - DateTime.now).to_i %> dní! Miluji Tě!
+</h1>
+<%= image_tag @image_url, class: "absoluteCenter" %>
 
-  .absoluteCenter {
-    margin: auto;
-    position: absolute;
-    top:0;
-    bottom:0;
-    left:0;
-    right:0;
-  }
-
-  /* Sizing */
-  img.absoluteCenter {
-    max-height:100%;
-    max-width:100%;
-    z-index: -2;
-  }
-
-    h1.waiting{
-      background-color: rgba(0,0,0,0.5);
-      color: white;
-      margin: auto;
-      text-align: center;
-      padding-top: 5px;
-      padding-bottom: 5px;
-    }
-</style>
-
-<% if DateTime.now >= DateTime.civil(2016, 8, 1) || Rails.env.development? %>
-  <h1 class="waiting">
-    Už jen <%= (DateTime.civil(2016,12,13) - DateTime.now).to_i %> dní! Miluji Tě!
-  </h1>
-  <%= image_tag @image_url, class: "absoluteCenter" %>
-<% else %>
-  <h1 class="waiting">
-    W8 for it until 1.8.2016!
-  </h1>
+<%= link_to seen_path, class: 'seen-pictures' do %>
+  <h3>Seen pictures</h3>
 <% end %>
-

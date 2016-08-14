@@ -4,8 +4,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def index
-    @image = Image.order(:created_at).last
-    @image_url = "https://s3-eu-west-1.amazonaws.com/arrival-countdown/public/#{@image.name}.jpg"
+    @image = ArrImage.order(:created_at).last
+    @image_url = @image.url
+  end
+
+  def images_list
+    @images = ArrImage.order(:created_at)
   end
 
 end

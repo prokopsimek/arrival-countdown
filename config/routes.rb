@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'application#index'
+  get 'seen' => 'application#images_list'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
