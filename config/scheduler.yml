@@ -1,7 +1,7 @@
-new_image_job:
-  cron: "0 08 * * * Europe/Prague"
-  class: NewImageJob
-  description: "Refreshing images."
+#new_image_job:
+#  cron: "0 08 * * * Europe/Prague"
+#  class: NewImageJob
+#  description: "Refreshing images."
 #ping_job:
 #  every:
 #    - "10s"
