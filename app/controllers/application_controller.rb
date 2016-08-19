@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   def images_list
-    @images = ArrImage.order(:created_at)
+    @images = ArrImage.order('created_at DESC')
   end
 
 end
